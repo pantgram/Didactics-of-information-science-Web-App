@@ -1,20 +1,49 @@
-.vertical-menu {
-  width: 200px; /* Set a width if you like */
+/* The sidebar menu */
+body {
+  padding: 0;
+  margin: 0;
+}
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 20%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  background-color: #e7eaf6; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
 }
 
-.vertical-menu a {
-  background-color: #eee; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+/* The navigation menu links */
+.sidenav a {
+  padding: 15%;
+  text-decoration: none;
+  font-size: 25px;
+  color: #a2a8d3;
+  display: block;
 }
 
-.vertical-menu a:hover {
-  background-color: #ccc; /* Dark grey background on mouse-over */
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #113f67;
+}
+.sidenav a:active {
+background-color: white;
+}
+/* Style page content */
+.main {
+  margin-left: 20%; /* Same as the width of the sidebar */
+  padding: 2%;
 }
 
-.vertical-menu a.active {
-  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.header {
+  background-color: #113f67;
   color: white;
+  padding: 1%;
+  width: 100%;
+  text-align: center;
 }
