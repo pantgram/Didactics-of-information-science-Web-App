@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<?php include('mustLogin.php')?>
 <html>
   <head>
     <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <?php require_once('config.php') ?>
+    <?php include('server.php') ?>
     <title>Αρχική σελίδα</title>
     </head>
 <body>
@@ -11,10 +14,10 @@
     </div>
     <div class="sidenav">
   <a href="">Αρχική Σελίδα</a>
-  <a href="announcment.html">Ανακοινώσεις</a>
-  <a href="communication.html">Επικοινωνία</a>
-  <a href="documents.html">Έγραφα μαθήματος</a>
-  <a href="homework.html">Εργασίες</a>
+  <a href="announcment.php">Ανακοινώσεις</a>
+  <a href="communication.php">Επικοινωνία</a>
+  <a href="documents.php">Έγραφα μαθήματος</a>
+  <a href="homework.php">Εργασίες</a>
 </div>
   <h2>ΚΑΛΩΣ ΟΡΙΣΑΤΕ ΣΤΟ ΜΑΘΗΜΑ "ΔΙΔΑΚΤΙΚΗ ΤΗΣ ΠΛΗΡΟΦΟΡΙΚΗΣ"</h2>
   <div class="main">
