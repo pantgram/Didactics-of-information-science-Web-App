@@ -1,36 +1,38 @@
-<!DOCTYPE html>
 <?php include('mustLogin.php')?>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Έγγραφα μαθήματος</title>
+    <title>Χρήστες</title>
     </head>
 <body>
   <?php require_once('config.php') ?>
-  <?php require_once('doc_functions.php') ?>
-  <?php $documents=getDocuments(); ?>
+  <?php require_once('user_functions.php') ?>
+  <?php $users=getUsers(); ?>
 <div class="header">
-  <h1> Έγγραφα μαθήματος </h1>
+  <h1> Χρήστες </h1>
     </div>
-<?php include('sidenav.php') ?>
+  <?php include('sidenav.php') ?>
 <?php if ($_SESSION['role']=="Tutor") : ?>
   <div class="main">
-      <a style="float:right;  color:#385170;"  href="addDocument.php">Προσθήκη Εγγράφου</a> <hr class="solid">
+      <a style="float:right; color:#385170;" href="addUser.php">Προσθήκη Χρήστη</a> <hr class="solid">
   </div>
 <?php endif ?>
-<?php foreach ($documents as $document): ?>
-<h2> <?php echo $document['title'] ?> </h2>
-<?php if ($_SESSION['role']=="Tutor") : ?>
-  <div class="main">
-      <a style="float:right;" href="updateDocuments.php?edit_doc=<?php echo $document['id'] ?>"><button class="fa fa-pencil  edit"></button></a>
-      <a style="float:right;" href="documents.php?delete_doc=<?php echo $document['id'] ?>"><button class="fa fa-trash  delete"></button></a>
-  </div>
-<?php endif ?>
-<div class="main ">
-<p><b> Περιγραφή: </b><?php echo $document['description'] ?> </p>
-<a href="<?php echo $document['filepath'] ?>" download>Download</a>
+<?php foreach ($users as $user): ?>
+    <h2> Χρήστης: <?php echo $user['loginame'] ?> </h2>
+  <?php if ($_SESSION['role']=="Tutor") : ?>
+    <div class="main">
+        <a  style="float:right; " href="updateUsers.php?edit_user=<?php echo $user['loginame'] ?>"><button class="fa fa-pencil  edit"></button></a>
+        <a  style="float:right;" href="users.php?delete_user=<?php echo $user['loginame'] ?>"><button class="fa fa-trash  delete"></button></a>
+    </div>
+  <?php endif ?>
+  <div class="main ">
+<p><b> Όνομα: </b> <?php echo $user['name'] ?> </p>
+<p> <b>Επίθετο:</b> <?php echo $user['surname'] ?> </p>
+<p> <b>Κωδικός:</b> <?php echo $user['password'] ?> </p>
+<p> <b>Ρόλος:</b> <?php echo $user['role'] ?> </p>
 </div>
 <hr class="solid">
 <?php endforeach ?>

@@ -5,20 +5,24 @@
 <head>
   <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Login</title>
+  <title>Πιστοποίηση</title>
   <?php require_once('config.php') ?>
 </head>
   <body>
-
+    <div class="header">
+      <h1> ΠΙΣΤΟΠΟΙΗΣΗ </h1>
+        </div>
 <div  style="float:left"> <?php include('errors.php'); ?> </div>
-         <form  action="login.php" method="post" style="margin:auto;max-width:300px">
-          <div  style="margin:auto;max-width:300px">
-           <input type="text" name="loginame" placeholder="loginame" value="<?php echo $loginame; ?>" required>
-         </div>
-             <div  style="margin:auto;max-width:300px">
-              <input type="password"  name="password"  placeholder="password" required>
-             </div>
-          <button type="submit"  name="login">Login</button>
-</form>
+  <div class="container-login">
+         <form  action="login.php" method="post">
 
+            <label for="loginame"><b>Username</b></label><br>
+           <input class="input-login" type="text" name="loginame" placeholder="Enter loginame" value="<?php echo $loginame; ?>" required>
+           <br>
+           <label for="password"><b>Password</b></label>
+           <br>
+          <input class="input-login" type="password"  name="password"  placeholder="Enter password" required>
+          <br>
+          <button class="submit-login" type="submit"  name="login">Login</button>
+</div>
 </body>

@@ -1,36 +1,40 @@
-<!DOCTYPE html>
 <?php include('mustLogin.php')?>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Έγγραφα μαθήματος</title>
+    <title>Ανακοινώσεις</title>
     </head>
 <body>
   <?php require_once('config.php') ?>
-  <?php require_once('doc_functions.php') ?>
-  <?php $documents=getDocuments(); ?>
+  <?php require_once('ann_functions.php') ?>
+  <?php $announcements=getAnnouncements(); ?>
 <div class="header">
-  <h1> Έγγραφα μαθήματος </h1>
+  <h1> Ανακοινώσεις </h1>
     </div>
-<?php include('sidenav.php') ?>
+  <?php include('sidenav.php') ?>
 <?php if ($_SESSION['role']=="Tutor") : ?>
   <div class="main">
-      <a style="float:right;  color:#385170;"  href="addDocument.php">Προσθήκη Εγγράφου</a> <hr class="solid">
+      <a style="float:right;  color:#385170;" href="addAnnouncement.php">Προσθήκη Ανακοίνωσης</a> <hr class="solid">
   </div>
 <?php endif ?>
-<?php foreach ($documents as $document): ?>
-<h2> <?php echo $document['title'] ?> </h2>
-<?php if ($_SESSION['role']=="Tutor") : ?>
-  <div class="main">
-      <a style="float:right;" href="updateDocuments.php?edit_doc=<?php echo $document['id'] ?>"><button class="fa fa-pencil  edit"></button></a>
-      <a style="float:right;" href="documents.php?delete_doc=<?php echo $document['id'] ?>"><button class="fa fa-trash  delete"></button></a>
-  </div>
-<?php endif ?>
-<div class="main ">
-<p><b> Περιγραφή: </b><?php echo $document['description'] ?> </p>
-<a href="<?php echo $document['filepath'] ?>" download>Download</a>
+<?php foreach ($announcements as $announcement): ?>
+  <h2> ΑΝΑΚΟΙΝΩΣΗ <?php echo $announcement['id'] ?> </h2>
+  <?php if ($_SESSION['role']=="Tutor") : ?>
+    <div class="main">
+        <a style="float:right;" href="updateAnnouncements.php?edit_ann=<?php echo $announcement['id'] ?>"><button class="fa fa-pencil  edit"></button></a>
+        <a style="float:right;" href="announcement.php?delete_ann=<?php echo $announcement['id'] ?>"><button class="fa fa-trash  delete"></button></a>
+    </div>
+  <?php endif ?>
+  <div class="main ">
+<p><b> Ημερομηνία: </b> <?php echo $announcement['date'] ?> </p>
+<p> <b>Θέμα:</b> <?php echo $announcement['subject'] ?> </p>
+<p> <?php echo $announcement['Text'] ?>
+<?php if ($announcement['subject']=="Ανακοίνωση εργασίας") : ?>
+  <a href="homework.php">Εργασίες</a>
+<?php endif ?> </p>
 </div>
 <hr class="solid">
 <?php endforeach ?>

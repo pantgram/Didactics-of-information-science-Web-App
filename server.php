@@ -15,7 +15,7 @@ $name= "";
 $surname  = "";
 $password   = "";
 $errors = array();
-echo "1";
+
 if (isset($_POST['login'])) {
 
   $loginame = mysqli_real_escape_string($db, $_POST['loginame']);

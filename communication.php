@@ -10,13 +10,7 @@
 <div class="header">
   <h1> Επικοινωνία </h1>
     </div>
-    <div class="sidenav">
-  <a href="index.html" class="active">Αρχική Σελίδα</a>
-  <a href="announcment.html">Ανακοινώσεις</a>
-  <a href="communication.html">Επικοινωνία</a>
-  <a href="documents.html">Έγραφα μαθήματος</a>
-  <a href="homework.html">Εργασίες</a>
-</div>
+<?php include('sidenav.php') ?>
 <div class="main">
 <p>Η συγκεκριμένη ιστοσελίδα θα παρέχει δύο δυνατότητες για την αποστολή e-mail στον καθηγητή:</p>
 <ul>
@@ -26,18 +20,18 @@
 </div>
 <h2>Αποστολή e-mail μέσω web φόρμας</h2>
 <div class="container">
-  <form action="action_page.php">
+  <form action="communication.php">
 
     <label for="sender" style="font-size: 130%">Your Email</label>
-    <input type="text" id="sender" name="sender">
+    <input class="inputCom" type="text" id="sender" name="sender">
 
     <label for="subject" style="font-size: 130%">Subject</label>
-    <input type="text" id="subject" name="subject">
+    <input class="inputCom" type="text" id="subject" name="subject">
 
     <label for="Text" style="font-size:130%">Text</label>
-    <textarea id="Text" name="Text" placeholder="Write something.." style="height:150px"></textarea>
+    <textarea class="inputCom" id="Text" name="Text" placeholder="Write something.." style="height:150px"></textarea>
 
-    <input type="submit" value="Submit">
+    <input class="submitCom" type="submit" value="Submit">
   </form>
 </div>
 <h2>Αποστολή e-mail με χρήση email διεύθυνσης</h2>
